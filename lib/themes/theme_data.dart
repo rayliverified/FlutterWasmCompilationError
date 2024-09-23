@@ -2,34 +2,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-// ignore: library_prefixes
-import 'colors.dart' as ExplicitColors;
-import 'colors.dart';
-import 'radii.dart';
-
 final ThemeData themeData = ThemeData(
   visualDensity: VisualDensity.compact,
-  // colors
-  colorScheme: const ColorScheme.light(
-    primary: primary,
-    primaryContainer: primaryContainer,
-    onPrimary: white,
-    secondary: secondary,
-    onSecondary: black,
-    // Tertiary
-    secondaryContainer: secondaryContainer,
-    background: background,
-    onBackground: black,
-    surface: surface,
-    onSurface: onSurface,
-    error: error,
-    onError: black,
-  ),
-
-  primaryColor: primary,
-  scaffoldBackgroundColor: scaffoldBackground,
-  shadowColor: shadow,
-  highlightColor: black.withOpacity(0.06),
 
   // Fixes uneven width of scrollbar when hovered
   scrollbarTheme: ScrollbarThemeData(thickness: MaterialStateProperty.all(4)),
@@ -82,100 +56,18 @@ final ThemeData themeData = ThemeData(
     bodySmall: TextStyle(fontSize: 12, fontWeight: FontWeight.normal),
     labelSmall: TextStyle(fontSize: 10, fontWeight: FontWeight.normal),
     labelLarge: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
-  ).apply(bodyColor: textPrimary, displayColor: textPrimary),
+  ),
 
-  // buttons
-  buttonTheme: ButtonThemeData(
-    padding: const EdgeInsets.all(4),
-    focusColor: primary.withOpacity(0.1),
-    highlightColor: primary.withOpacity(0.1),
-    hoverColor: primaryContainer.withOpacity(0.02),
-    splashColor: primary,
-    shape: cardShapeBorder,
-  ),
-  outlinedButtonTheme: OutlinedButtonThemeData(
-    style: ButtonStyle(
-      shape: MaterialStateProperty.all<OutlinedBorder>(buttonShapeBorder),
-      minimumSize: MaterialStateProperty.all<Size>(Size.zero),
-      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-      padding: MaterialStateProperty.all<EdgeInsets>(const EdgeInsets.all(12)),
-      side: MaterialStateProperty.resolveWith<BorderSide>(
-        (Set<MaterialState> states) {
-          // final bool isDisabled = states.contains(MaterialState.disabled);
-          return const BorderSide(
-            color: secondary,
-            width: 1,
-          );
-        },
-      ),
-      foregroundColor: MaterialStateProperty.resolveWith<Color>(
-        (Set<MaterialState> states) {
-          return secondary;
-        },
-      ),
-    ),
-  ),
-  textButtonTheme: TextButtonThemeData(
-    style: ButtonStyle(
-      shape: MaterialStateProperty.all<OutlinedBorder>(buttonShapeBorder),
-      minimumSize: MaterialStateProperty.all<Size>(Size.zero),
-      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-      padding: MaterialStateProperty.all<EdgeInsets>(const EdgeInsets.all(12)),
-      foregroundColor: MaterialStateProperty.resolveWith<Color>(
-        (Set<MaterialState> states) {
-          if (states.contains(MaterialState.disabled)) return secondary;
-          return primary;
-        },
-      ),
-      overlayColor: MaterialStateProperty.all(primary.withOpacity(0.1)),
-      animationDuration: const Duration(milliseconds: 250),
-    ),
-  ),
-  //**Not planning on continuing elevated buttons. We want our own custom shadow.
-  elevatedButtonTheme: ElevatedButtonThemeData(
-    style: ButtonStyle(
-      shape: MaterialStateProperty.all<OutlinedBorder>(buttonShapeBorder),
-      backgroundColor: MaterialStateProperty.resolveWith<Color>(
-        (Set<MaterialState> states) {
-          if (states.contains(MaterialState.disabled)) return grey;
-          return primary;
-        },
-      ),
-      minimumSize: MaterialStateProperty.all<Size>(Size.zero),
-      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-      padding: MaterialStateProperty.all<EdgeInsets>(const EdgeInsets.all(12)),
-      elevation: MaterialStateProperty.all(0),
-    ),
-  ),
   sliderTheme: SliderThemeData(
     thumbShape: const ThumbShape(),
     trackShape: TrackShape(),
     overlayColor: Colors.transparent,
     thumbColor: Colors.white,
-    inactiveTrackColor: secondary,
-    activeTrackColor: primary,
   ),
   inputDecorationTheme: InputDecorationTheme(
     border: OutlineInputBorder(
       borderRadius: BorderRadius.circular(4),
     ),
-    enabledBorder: OutlineInputBorder(
-      borderSide: BorderSide(color: secondary.withOpacity(0.3)),
-    ),
-    hintStyle: const TextStyle(color: secondary),
-    hoverColor: secondary.withOpacity(0.3),
-    fillColor: secondary.withOpacity(0.3),
-  ),
-
-  // etc
-  cardTheme: const CardTheme(
-    shape: cardShapeBorder,
-    elevation: 4,
-  ),
-  iconTheme: const IconThemeData(color: textPrimary),
-  tabBarTheme: const TabBarTheme(
-    labelStyle: TextStyle(fontWeight: FontWeight.w700),
-    unselectedLabelStyle: TextStyle(fontWeight: FontWeight.w600),
   ),
 );
 
@@ -388,14 +280,14 @@ class ExplicitThemeData with Diagnosticable {
   });
 
   factory ExplicitThemeData() => const ExplicitThemeData.raw(
-        spotlightColor: ExplicitColors.spotlightColor,
-        purple: ExplicitColors.purple,
-        green: ExplicitColors.green,
-        bluish: ExplicitColors.bluish,
-        lightGrey: ExplicitColors.lightGrey,
-        whiteShade: ExplicitColors.whiteShade,
-        grey: ExplicitColors.grey,
-        lightGreen: ExplicitColors.lightGreen,
+        green: Colors.green,
+        purple: Colors.purple,
+        bluish: Colors.blue,
+        lightGrey: Colors.grey,
+        whiteShade: Colors.white,
+        grey: Colors.grey,
+        spotlightColor: Colors.yellow,
+        lightGreen: Colors.lightGreen,
       );
 
   final Color green;
