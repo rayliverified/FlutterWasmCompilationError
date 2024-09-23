@@ -1,5 +1,4 @@
 import 'package:codelessly_sdk/codelessly_sdk.dart';
-import 'package:example/helpers/extensions.dart';
 import 'package:example/themes/theme_data.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
@@ -36,6 +35,6 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-    ).withExplicitTheme;
+    );
   }
 }
